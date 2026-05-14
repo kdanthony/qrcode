@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel">
+        <h1>QR Code Generator</h1>
+        <p class="subtitle">
+          Paste a URL, generate a QR code, then download it as a PNG.
+        </p>
+
+        <form id="qr-form" novalidate>
+          <label for="url-input">URL</label>
+          <div class="input-row">
+            <input
+              id="url-input"
+              name="url"
+              type="url"
+              placeholder="https://example.com"
+              required
+            />
+            <button type="submit">Generate</button>
+          </div>
+        </form>
+
+        <p id="status" role="status" aria-live="polite"></p>
+
+        <div id="qr-output" class="qr-output" aria-label="QR Code Preview">
+          <canvas id="qr-canvas" width="320" height="320"></canvas>
+        </div>
+
+        <button id="download-btn" type="button" disabled>
+          Download PNG
+        </button>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
